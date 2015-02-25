@@ -1,7 +1,7 @@
-# Journal
+# Beers 'Round The World
 
 ## Description
- * A journal application using Angular
+ * A catalog of beers from around the world.
 
 ## Want this app?
  * Clone my repo
