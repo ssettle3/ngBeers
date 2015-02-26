@@ -22,6 +22,7 @@ body {
     h1{
       padding-top: 10rem;
       font-size: 5rem;
+      text-outline: 2px 2px black;
     }
     h2{
       font-style: italic;
@@ -50,7 +51,7 @@ body {
 .welcome::after {
   content: "";
   background: url('../images/beer-bottle.jpg');
-  opacity: 0.9;
+  opacity: 0.5;
   top: 0;
   left: 0;
   bottom: 0;
@@ -58,26 +59,26 @@ body {
   position: absolute;
   z-index: -1;
 
-  -webkit-filter: blur(4px);
-  -moz-filter: blur(4px);
-  -o-filter: blur(4px);
-  -ms-filter: blur(4px);
-  filter: blur(4px);   
+  // -webkit-filter: blur(2px);
+  // -moz-filter: blur(2px);
+  // -o-filter: blur(2px);
+  // -ms-filter: blur(2px);
+  // filter: blur(2px);   
 }
 
 // Add Beer View
+.form{
+  padding: 3rem;
+}
 
 .add-beer{
   width: 100%;
-  height: 50rem;
-  background: url('../images/wall-beer.jpeg');
-  background-repeat: no-repeat;
+  background-color: #0E64B9;
 }
 .add-beer form{
   border: 0.2rem solid black;
   background-color: white;
   width: 50rem;
-  height: 40rem;
   margin: 0 auto;
   text-align: center;
     h1{
@@ -86,8 +87,8 @@ body {
     }
     input{
       width: 20rem;
-      padding: 1rem;
-      margin: 1rem;
+      padding: 0.5rem;
+      margin: 0.5rem;
       color:black;
       font-size: 1rem;
     }
@@ -98,6 +99,19 @@ body {
       border-radius: 5%;
       background-color: #4183C4;
     }
+    span{
+      color: white;
+      font-size: 1rem;
+      background-color: #4183C4;
+      border-radius: 5%;
+      padding: 1rem;
+    }
+    span:hover{
+      cursor: pointer;
+    }
+}
+.photoArea{
+  margin: 3rem;
 }
 .beer-list{
   color: black;

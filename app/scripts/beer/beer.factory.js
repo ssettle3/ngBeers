@@ -18,9 +18,16 @@
 				);
 			};
 
+			var addImage = function (){
+				filepicker.pickAndStore({}, {}, function (pic){
+					$rootScope.$broadcast('beer:imageUploaded', pic[0]);
+				});
+			}
+
 			return {
 				fetch: getAllBeers,
-				post: addBeer
+				post: addBeer,
+				attImg: addImage
 			}
 
 

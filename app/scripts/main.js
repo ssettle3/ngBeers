@@ -1,7 +1,9 @@
 (function (){
 
-	// Set up Main Module
+	//File Picker Key
+	filepicker.setKey("AUqqkJMvRvC6XKQUxPl6Rz");
 
+	// Set up Main Module
 	angular.module('Beers', ['ngRoute'])
 
 	.constant('PARSE', {
@@ -13,7 +15,6 @@
   			'Content-Type': 'application/json'
 			}
 		}
-	
 	})
 
 	.config( function ($routeProvider){
