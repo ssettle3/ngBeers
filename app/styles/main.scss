@@ -5,9 +5,53 @@
 // Custom Styles
 body {
   background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  font-family: 'Poiret One', cursive;
+  color: #F8FFA1;
   width: 100%;
   font-size: 10px;
 }
+.welcome {
+  width: 100%;
+  height: 50rem;
+  text-align: center;
+  display: block;
+  position: relative;
+    h1{
+      padding-top: 10rem;
+      font-size: 5rem;
+    }
+    h2{
+      font-style: italic;
+      font-size: 1.5rem;
+    }
+    h3{
+      margin-top: 2rem;
+      font-size: 1.5rem;
+    }
+    button{
+      padding: 1rem;
+      margin: 2rem;
+      border-radius: 10%;
+      background: transparent;
+    }
+    button:hover{
+      background-color: #4183C4;
+    }
+    a{
+      text-decoration: none;
+      padding: 1rem;
+      color: white;
+    }
+}
 
+.welcome::after {
+  content: "";
+  background: url('../images/beer-bottle.jpg');
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}

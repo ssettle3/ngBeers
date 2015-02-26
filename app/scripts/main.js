@@ -14,19 +14,24 @@
 	angular.module('Beers', ['ngRoute'])
 
 	.constant ({
-		'rootURL' : 'https://api.parse.com/1/classes/beers'
+		'rootURL' : 'https://api.parse.com/1/classes/'
 	})
 
 	.config( function ($routeProvider){
 
 		$routeProvider.when('/', {
-			controller: 'WelcomeController',
-			templateUrl: 'welcome/welcome-template.html'
+			// controller: 'WelcomeController',
+			templateUrl: 'scripts/welcome/welcome-template.html'
 		});
 
 		$routeProvider.when('/beerlist', {
 			controller: 'BeerController',
-			templateUrl: 'list/beerlist-template,html'
+			templateUrl: 'scripts/beer/beer-list-template.html'
+		});
+
+		$routeProvider.when('/addbeer', {
+			controller: 'AddController',
+			templateUrl: 'scripts/addbeer/add-beer-template.html'
 		});
 
 	});

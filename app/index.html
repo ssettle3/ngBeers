@@ -19,9 +19,11 @@
 
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="../bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
+    <!-- endbuild -->    
   </head>
-  <body>
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <body ng-app='Beers'>
+
     <div class="container" ng-view></div>
 
     <!-- build:js scripts/vendor.js -->
@@ -36,6 +38,8 @@
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/welcome/welcome.controller.js"></script>
+        <script src="scripts/addbeer/add-beer.controller.js"></script>
+        <script src="scripts/beer/beer-list.controller.js"></script>
         <!-- endbuild -->
 </body>
 </html>
