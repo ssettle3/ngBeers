@@ -21,7 +21,9 @@
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->    
   </head>
+ 
   <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+  
   <body ng-app='Beers'>
 
     <div class="container" ng-view></div>
@@ -37,9 +39,8 @@
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
-        <script src="scripts/welcome/welcome.controller.js"></script>
-        <script src="scripts/addbeer/add-beer.controller.js"></script>
-        <script src="scripts/beer/beer-list.controller.js"></script>
+        <script src="scripts/beer/beer.factory.js"></script>
+        <script src="scripts/beer/beer.controller.js"></script>
         <!-- endbuild -->
 </body>
 </html>

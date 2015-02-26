@@ -1,6 +1,8 @@
 <div class="beer-list">
-	<ul>
- 		<li ng-repeat="todo in beerCol" class="{{ todo.status }}">{{ todo.title }}</li>
-	</ul>
-
+	<div class="single-beer" ng-repeat="beer in beerCol">
+		<h1>{{ beer.name }}</h1>
+		<h3>Type: {{ beer.type }}</h3>
+		<h3>Brewery: {{ beer.brewer }}</h3>
+		<h3>Location: {{ beer.location }}</h3>
+	</div>
 </div>

@@ -19,19 +19,19 @@
 	.config( function ($routeProvider){
 
 		$routeProvider.when('/', {
-			// controller: 'WelcomeController',
+			controller: 'BeerController',
 			templateUrl: 'scripts/welcome/welcome-template.html'
-		});
+		})
 
-		$routeProvider.when('/beerlist', {
+		.when('/beerlist', {
 			controller: 'BeerController',
 			templateUrl: 'scripts/beer/beer-list-template.html'
-		});
+		})
 
-		$routeProvider.when('/addbeer', {
-			controller: 'AddController',
-			templateUrl: 'scripts/addbeer/add-beer-template.html'
-		});
+		.when('/addbeer', {
+			controller: 'BeerController',
+			templateUrl: 'scripts/beer/add-beer-template.html'
+		})
 
 	});
 
