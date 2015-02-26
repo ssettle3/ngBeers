@@ -5,8 +5,9 @@
 	$.ajaxSetup({
 		headers: {
 			'X-Parse-Application-Id': '6DUYNUIpGv8KMieDZ3JCY6T49P6CM36rL3M5HYaf', 
-	  	'X-Parse-REST-API-Key': 'JIiZJRXMlbchAdW7CnqbDRMFDUND0MiDLYimjS99' 
+  		'X-Parse-REST-API-Key': 'JIiZJRXMlbchAdW7CnqbDRMFDUND0MiDLYimjS99' 
 		}
+
 	});
 
 	// Set up Main Module
