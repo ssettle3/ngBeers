@@ -1,10 +1,12 @@
 <div class="beer-list">
 	<div class="single-beer" ng-repeat="beer in beerCol">
 		<img src= '{{ beer.imageURL}}'>
-		<h1>{{ beer.name }}</h1>
-		<h3>Type: {{ beer.type }}</h3>
-		<h3>Brewery: {{ beer.brewer }}</h3>
-		<h3>Location: {{ beer.location }}</h3>
+		<div class="content">
+			<h1>{{ beer.name }}</h1>
+			<h3>Type: {{ beer.type }}</h3>
+			<h3>Brewery: {{ beer.brewer }}</h3>
+			<h3>Location: {{ beer.location }}</h3>
+		</div>
 	</div>
 </div>
 

@@ -115,7 +115,20 @@ body {
 }
 .beer-list{
   color: black;
-  border: 4px double black;
+}
+.single-beer{
+  float:left;
+  clear:both;
+  margin: 3rem 0 0 3rem;
+  img{
+    width: 13rem;
+    height: auto;
+    float:left;
+  }
+  .content{
+    float:left;
+    margin-left: 2rem;
+  }
 }
 
 
