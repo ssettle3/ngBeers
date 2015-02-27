@@ -88,15 +88,19 @@ header{
 
 .add-beer{
   width: 100%;
+  background: url('../images/world-map.jpg');
+  background-size: 100% 100%;
+
 }
 .add-beer form{
-  border: 0.2rem solid black;
-  background-color: white;
+  border: 0.2rem solid white;
+  border-radius: 1rem;
+  background-color: rgba(0,0,0,0.6);
   width: 50rem;
   margin: 0 auto;
   text-align: center;
     h1{
-      color:black;
+      color:white;
       font-size: 2rem;
     }
     input{
@@ -111,6 +115,7 @@ header{
       margin: 2rem;
       font-size: 1rem;
       border-radius: 5%;
+      border: none;
       background-color: #4183C4;
     }
     span{
@@ -141,6 +146,10 @@ header{
   }
   h2{
     font-size: 2rem;
+    margin-top: 0;
+  }
+  h3:nth-child(4){
+    margin-bottom: 2rem;
   }
   a{
     text-align: center;
@@ -154,9 +163,9 @@ header{
 }
 .single-beer{
   float:left;
-  width: 800px;
+  width: 35rem;
+  height: 25rem;
   padding: 1rem 1rem 2rem 1rem;
-  clear:both;
   margin: 1rem 0 0 3rem;
   border-bottom: 0.2rem solid lightgray;
   img{
