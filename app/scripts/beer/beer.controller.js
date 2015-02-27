@@ -31,6 +31,10 @@
 				$scope.$apply();
 			});
 
+			$rootScope.$on('beer:deleted', function (){
+				$scope.$apply();
+			});
+
 		}
 	]);
 

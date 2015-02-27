@@ -18,9 +18,9 @@
 				);
 			};
 
-			var deleteBeer = function (beer){
-				// $http.delete(PARSE.URL + 'classes/beers' + objectId, PARSE.CONFIG)
-				console.log(beer.objectId);
+			var deleteBeer = function (){
+				$http.delete(PARSE.URL + 'classes/beers/' + event.target.attributes.class.value, PARSE.CONFIG);
+				$(event.target).parent().remove();
 			};
 
 			var addImage = function (){
