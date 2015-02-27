@@ -18,9 +18,8 @@
 				);
 			};
 
-			var deleteBeer = function (){
-				$http.delete(PARSE.URL + 'classes/beers/' + event.target.attributes.class.value, PARSE.CONFIG);
-				$(event.target).parent().remove();
+			var deleteBeer = function (id){
+				return $http.delete(PARSE.URL + 'classes/beers/' + id, PARSE.CONFIG);
 			};
 
 			var addImage = function (){
@@ -29,11 +28,17 @@
 				});
 			};
 
+			var like = function (data){
+				console.log(event.target)
+				// $http.put(PARSE.URL + 'classes/beers' + event.target.attributes.class.value, data, PARSE.CONFIG)
+			}
+
 			return {
 				fetch: getAllBeers,
 				post: addBeer,
 				attImg: addImage,
-				dltBeer: deleteBeer
+				dltBeer: deleteBeer,
+				like: like
 			}
 
 

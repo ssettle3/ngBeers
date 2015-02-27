@@ -14,7 +14,7 @@ body {
 // Header
 
 header{
-  background-color: black;
+  background-color: RGBA(54, 128, 199, 1);
   margin: 0;
   height:4rem;
   a{
@@ -27,8 +27,9 @@ header{
 
 .welcome {
   width: 100%;
-  height: 38rem;
+  height: 45rem;
   text-align: center;
+  border-top: 1px solid #0E64B9;
   display: block;
   position: relative;
     h1{
@@ -142,14 +143,26 @@ header{
     font-size: 4rem;
     margin-left: 2rem;
     margin-bottom: 0;
-    border-bottom: 0.3rem solid lightgray;
+    border-bottom: 0.3rem solid RGBA(54, 128, 199, 1);
   }
   h2{
     font-size: 2rem;
     margin-top: 0;
+    border-bottom: 0.1rem solid RGBA(54, 128, 199, 1);
   }
   h3:nth-child(4){
     margin-bottom: 2rem;
+  }
+  h3{
+    font-size: 1rem;
+  }
+  h4{
+    font-size: 0.7rem;
+  }
+  h4:hover{
+    cursor: pointer;
+    color:blue;
+    text-decoration: underline;
   }
   a{
     text-align: center;
@@ -167,7 +180,7 @@ header{
   height: 25rem;
   padding: 1rem 1rem 2rem 1rem;
   margin: 1rem 0 0 3rem;
-  border-bottom: 0.2rem solid lightgray;
+  border-bottom: 0.2rem solid RGBA(54, 128, 199, 1);
   img{
     width: 13rem;
     height: auto;
@@ -178,12 +191,30 @@ header{
     margin-left: 2rem;
   }
   span{
-    background: red;
+    background: darkred;
+    display: inline-block;
     color: white;
     padding: 0.5rem;
+    margin-top:1rem;
+  }
+  span:hover{
+    background: red;
   }
   span:hover{
     cursor: pointer;
+  }
+  .like{
+    background: green;
+  }
+  .like:hover{
+    background: lime;
+  }
+  .likes{
+    background: none;
+    color:black;
+  }
+  .likes:hover{
+    background: none;
   }
 }
 

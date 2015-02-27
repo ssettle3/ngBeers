@@ -18,8 +18,21 @@
 				BeerFactory.attImg(i);
 			},
 
-			$scope.deleteBeer = function (d) {
-				BeerFactory.dltBeer(d);
+			$scope.deleteBeer = function (id) {
+				console.log($scope.beerCol[0].objectId);
+				BeerFactory.dltBeer(id)
+					.success( function (){
+						for (var i = 0; i < $scope.beerCol.length; i++){
+							if ($scope.beerCol[i].objectId === id){
+								$scope.beerCol.splice(i, 1);
+							}
+						}
+					});
+				console.log($scope)
+			},
+
+			$scope.like = function (b) {
+				BeerFactory.like(b);
 			},
 
 			$rootScope.$on('beer:added', function (){
@@ -28,10 +41,6 @@
 
 			$rootScope.$on('beer:imageUploaded', function (event, img) {
 				$scope.beerImage = img.url;
-				$scope.$apply();
-			});
-
-			$rootScope.$on('beer:deleted', function (){
 				$scope.$apply();
 			});
 
