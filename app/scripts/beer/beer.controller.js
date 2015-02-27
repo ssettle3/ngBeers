@@ -19,20 +19,28 @@
 			},
 
 			$scope.deleteBeer = function (id) {
-				console.log($scope.beerCol[0].objectId);
 				BeerFactory.dltBeer(id)
 					.success( function (){
 						for (var i = 0; i < $scope.beerCol.length; i++){
 							if ($scope.beerCol[i].objectId === id){
 								$scope.beerCol.splice(i, 1);
+								return;
 							}
 						}
 					});
-				console.log($scope)
 			},
 
-			$scope.like = function (b) {
-				BeerFactory.like(b);
+			$scope.like = function (id, num) {
+				num = (num + 1);
+				BeerFactory.like(id, { 'likes': num })
+					.success( function(){
+						for (var i = 0; i < $scope.beerCol.length; i++){
+							if ($scope.beerCol[i].objectId === id){
+								$scope.beerCol[i].likes += 1;
+								return;
+							}
+						}
+					});
 			},
 
 			$rootScope.$on('beer:added', function (){

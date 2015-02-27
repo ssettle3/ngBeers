@@ -28,9 +28,8 @@
 				});
 			};
 
-			var like = function (data){
-				console.log(event.target)
-				// $http.put(PARSE.URL + 'classes/beers' + event.target.attributes.class.value, data, PARSE.CONFIG)
+			var like = function (id, num){
+				return $http.put(PARSE.URL + 'classes/beers/' + id, num, PARSE.CONFIG);
 			}
 
 			return {
