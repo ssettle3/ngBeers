@@ -34,6 +34,10 @@
 			templateUrl: 'scripts/beer/add-beer-template.html'
 		})
 
+		.otherwise({
+			redirectTo: '/'
+		});
+
 	});
 
 }());

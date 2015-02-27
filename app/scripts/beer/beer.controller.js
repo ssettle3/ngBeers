@@ -18,6 +18,10 @@
 				BeerFactory.attImg(i);
 			},
 
+			$scope.deleteBeer = function (d) {
+				BeerFactory.dltBeer(d);
+			},
+
 			$rootScope.$on('beer:added', function (){
 				$location.path('/beerlist')
 			});

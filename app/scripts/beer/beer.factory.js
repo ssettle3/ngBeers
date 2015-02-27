@@ -18,16 +18,22 @@
 				);
 			};
 
+			var deleteBeer = function (beer){
+				// $http.delete(PARSE.URL + 'classes/beers' + objectId, PARSE.CONFIG)
+				console.log(beer.objectId);
+			};
+
 			var addImage = function (){
 				filepicker.pickAndStore({}, {}, function (pic){
 					$rootScope.$broadcast('beer:imageUploaded', pic[0]);
 				});
-			}
+			};
 
 			return {
 				fetch: getAllBeers,
 				post: addBeer,
-				attImg: addImage
+				attImg: addImage,
+				dltBeer: deleteBeer
 			}
 
 

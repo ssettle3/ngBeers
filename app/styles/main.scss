@@ -22,11 +22,12 @@ body {
     h1{
       padding-top: 10rem;
       font-size: 5rem;
-      text-outline: 2px 2px black;
+      text-shadow: 0.4rem 0.4rem black;
     }
     h2{
       font-style: italic;
       font-size: 1.5rem;
+      text-shadow: 0.2rem 0.2rem black;
     }
     h3{
       margin-top: 2rem;
@@ -67,13 +68,13 @@ body {
 }
 
 // Add Beer View
+
 .form{
   padding: 3rem;
 }
 
 .add-beer{
   width: 100%;
-  background-color: #0E64B9;
 }
 .add-beer form{
   border: 0.2rem solid black;
@@ -113,21 +114,55 @@ body {
 .photoArea{
   margin: 3rem;
 }
+
+// List Of Beers View
+
 .beer-list{
   color: black;
+  overflow: auto;
+  h1{
+    font-size: 4rem;
+    margin-left: 2rem;
+    margin-bottom: 0;
+    border-bottom: 0.3rem solid lightgray;
+  }
+  h2{
+    font-size: 2rem;
+  }
+  a{
+    text-align: center;
+    float:left;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  a:nth-child(even){
+    margin-left: 2rem;
+  }
 }
 .single-beer{
   float:left;
+  width: 800px;
+  padding: 1rem 1rem 2rem 1rem;
   clear:both;
-  margin: 3rem 0 0 3rem;
+  margin: 1rem 0 0 3rem;
+  border-bottom: 0.2rem solid lightgray;
   img{
     width: 13rem;
     height: auto;
     float:left;
+    border: 1px solid gold;
   }
   .content{
     float:left;
     margin-left: 2rem;
+  }
+  span{
+    background: red;
+    color: white;
+    padding: 0.5rem;
+  }
+  span:hover{
+    cursor: pointer;
   }
 }
 
