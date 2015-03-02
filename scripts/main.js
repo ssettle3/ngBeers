@@ -1,10 +1,10 @@
-(function (){
+;(function (){
 
 	//File Picker Key
 	filepicker.setKey("AUqqkJMvRvC6XKQUxPl6Rz");
 
 	// Set up Main Module
-	angular.module('Beers', ['ngRoute'])
+	angular.module('Beers', ['ngRoute', 'ngCookies'])
 
 	.constant('PARSE', {
 		URL: 'https://api.parse.com/1/',
@@ -23,22 +23,22 @@
 			templateUrl: 'scripts/welcome/welcome-template.html'
 		})
 
-		.when('/beerlist', {
+		$routeProvider.when('/beerlist', {
 			controller: 'BeerController',
 			templateUrl: 'scripts/beer/beer-list-template.html'
 		})
 
-		.when('/addbeer', {
+		$routeProvider.when('/addbeer', {
 			controller: 'BeerController',
 			templateUrl: 'scripts/beer/add-beer-template.html'
 		})
 
-		.when('/login', {
+		$routeProvider.when('/login', {
 			controller: 'UserController',
 			templateUrl: 'scripts/user/login-template.html'
 		})
 
-		.when('/register', {
+		$routeProvider.when('/register', {
 			controller: 'UserController',
 			templateUrl: 'scripts/user/signup-template.html'
 
@@ -48,11 +48,27 @@
 			redirectTo: '/'
 		});
 
-	});
+	})
+
+	.run([ '$rootScope', 'UserFactory', 'PARSE',
+		function ($rootScope, UserFactory, PARSE){
+
+			$rootScope.$on('$routeChangeStart', function (){
+
+				UserFactory.status();
+
+				var user = UserFactory.user();
+
+			});
+
+		}
+	])
 
 }());
 
 ;(function (){
+
+	'use strict';
 
 	angular.module('Beers')
 
@@ -101,33 +117,64 @@
 }());
 ;(function (){
 
+	'use strict';
+
 	angular.module('Beers')
 
-	.factory('UserFactory', ['$http', 'PARSE', '$rootScope',
-		function ($http, PARSE, $rootScope) {
+	.factory('UserFactory', ['$http', 'PARSE', '$rootScope', '$cookieStore', '$location',
+		function ($http, PARSE, $rootScope, $cookieStore, $location) {
+
+			// Get current User
+			var currentUser = function (){
+				return $cookieStore.get('currentUser');
+			};
+
+			// Check Status of User
+			var checkLoginStatus = function  () {
+				var user = currentUser();
+				if(user){
+					PARSE.CONFIG.headers['X-Parse-Session-Token'] = user.sessionToken;
+				}
+			};
 
 			// Register
-			var register = function (x){
-				return $http.post(PARSE.URL + 'users', x, PARSE.CONFIG)
-					.success( function (){
+			var registerUser = function (userObj){
+				$http.post(PARSE.URL + 'users', userObj, PARSE.CONFIG)
+					.then( function (response){
+						console.log(response);
 						$rootScope.$broadcast('user:registered');
 					}
 				);
 			};
 
 			// Login
-			var login = function (x){
-				return $http.get(PARSE.URL + 'login', x, PARSE.CONFIG)
-					.success( function (){
+			var loginUser = function (userObj){
+				$http({
+					url: PARSE.URL + 'login',
+					method: 'GET',
+					headers: PARSE.CONFIG.headers,
+					params: userObj
+				}).then( function (response){
+						console.log(response);
+						$cookieStore.put('currentUser', response.data);
 						$rootScope.$broadcast('user:loggedin');
-					}
-				);
+					});
 			};
 
-			return{
-				register: register,
-				login: login
+			// Logout 
+			var logoutUser = function (){
+				return $cookieStore.remove('currentUser');
+				$location.path('/login');
+				$rootScope.$broadcast('user:loggedout');
 			}
+
+			return{
+				register: registerUser,
+				login: loginUser,
+				user: currentUser,
+				status: checkLoginStatus,
+				logout: logoutUser
+			};
 
 		}
 
@@ -135,6 +182,8 @@
 
 }());
 ;(function (){
+
+	'use strict';
 
 	angular.module('Beers')
 
@@ -194,20 +243,27 @@
 }());
 ;(function (){
 
+	'use strict';
+	
 	angular.module('Beers')
 
 	.controller('UserController', ['$scope', 'UserFactory', '$rootScope', '$location',
 		function ($scope, UserFactory, $rootScope, $location) {
 
-			$scope.register = function () {
+			var user = UserFactory.user();
+			if(user){
+				return $location.path('/');
+			}
+
+			$scope.registerUser = function (userObj) {
 				if ($scope.user.password !== $scope.pass){
 					alert('Passwords have to match')
 				}
-				UserFactory.register($scope.user);
+				UserFactory.register(userObj);
 			},
 
-			$scope.login = function () {
-				UserFactory.login($scope.user);
+			$scope.loginUser = function (userObj) {
+				UserFactory.login(userObj);
 			},
 
 			$rootScope.$on('user:loggedin', function (){
@@ -218,6 +274,36 @@
 				$location.path('/beerlist')
 			});
 
+			$rootScope.$on('user:loggedout', function (){
+				$location.path('/')
+			});
+
+		}
+
+	]);
+
+}());
+;(function (){
+
+	'use strict';
+
+	angular.module('Beers')
+
+	.controller('NavController', ['$scope', 'UserFactory',
+		function ($scope, UserFactory){
+
+			var user = UserFactory.user();
+
+			if(user){
+				$scope.loggedin = true;
+				$scope.user = user;
+			} else {
+				$scope.loggedin = false;
+			}
+
+			$scope.logout = function (){
+				UserFactory.logout();
+			}
 		}
 
 	]);
