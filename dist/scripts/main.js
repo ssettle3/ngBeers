@@ -20,7 +20,6 @@
 	.config( function ($routeProvider){
 
 		$routeProvider.when('/', {
-			controller: 'BeerController',
 			templateUrl: 'scripts/welcome/welcome-template.html'
 		})
 
