@@ -34,6 +34,17 @@
 			templateUrl: 'scripts/beer/add-beer-template.html'
 		})
 
+		.when('/login', {
+			controller: 'UserController',
+			templateUrl: 'scripts/user/login-template.html'
+		})
+
+		.when('/register', {
+			controller: 'UserController',
+			templateUrl: 'scripts/user/signup-template.html'
+
+		})
+
 		.otherwise({
 			redirectTo: '/'
 		});

@@ -26,7 +26,7 @@
   
   <body ng-app='Beers'>
     <header>
-      <a href="#/">Home</a> | <a href="#/addbeer">Add Beer</a> | <a href="#/beerlist">The Beer</a>
+      <a href="#/">Home</a> | <a href="#/addbeer">Add Beer</a> | <a href="#/beerlist">The Beer</a> | <a href="#/login">Login</a> | <a href="#/register">Register</a>
     </header>
     <div class="container" ng-view></div>
 
@@ -44,7 +44,9 @@
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/beer/beer.factory.js"></script>
+        <script src="scripts/user/user.factory.js"></script>
         <script src="scripts/beer/beer.controller.js"></script>
+        <script src="scripts/user/user.controller.js"></script>
         <!-- endbuild -->
 </body>
 </html>

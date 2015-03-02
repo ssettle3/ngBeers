@@ -16,10 +16,16 @@ body {
 header{
   background-color: RGBA(54, 128, 199, 1);
   margin: 0;
-  height:4rem;
+  text-align:center;
+  padding: 1rem;
   a{
     color: white;
     font-size: 1rem;
+    padding: 1rem;
+  }
+  a:hover{
+    background-color: RGBA(40, 164, 222, 1);
+    color:white;
   }
 }
 
@@ -81,7 +87,7 @@ header{
   // filter: blur(2px);   
 }
 
-// Add Beer View
+
 
 .form{
   padding: 3rem;
@@ -93,7 +99,7 @@ header{
   background-size: 100% 100%;
 
 }
-.add-beer form{
+form{
   border: 0.2rem solid white;
   border-radius: 1rem;
   background-color: rgba(0,0,0,0.6);
@@ -132,6 +138,24 @@ header{
 }
 .photoArea{
   margin: 3rem;
+}
+
+// Login/Register
+
+.login form{
+  padding: 3rem;
+  margin-top: 2rem;
+    h1{
+      margin-top: 0;
+    }
+}
+
+.signup form{
+  padding: 3rem;
+  margin-top: 2rem;
+  h1{
+    margin-top: 0;
+  }
 }
 
 // List Of Beers View

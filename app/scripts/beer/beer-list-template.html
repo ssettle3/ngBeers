@@ -7,8 +7,6 @@
 			<h3>Type: {{ beer.type }}</h3>
 			<h3>Brewery: {{ beer.brewer }}</h3>
 			<h3>Location: {{ beer.location }}</h3>
-			<h4>Comment About This Beer</h4>
-			<h4>Read Comments</h4>
 			<span class='like' ng-click="like(beer.objectId, beer.likes)">Like Beer</span>
 			<span class='likes'>Likes: {{ beer.likes }} </span>
 			<span ng-click="deleteBeer(beer.objectId)">Delete Beer</span>
