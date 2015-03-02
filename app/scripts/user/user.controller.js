@@ -12,15 +12,15 @@
 				return $location.path('/');
 			}
 
-			$scope.register = function () {
+			$scope.registerUser = function (userObj) {
 				if ($scope.user.password !== $scope.pass){
 					alert('Passwords have to match')
 				}
-				UserFactory.register($scope.user);
+				UserFactory.register(userObj);
 			},
 
-			$scope.login = function () {
-				UserFactory.login($scope.user);
+			$scope.loginUser = function (userObj) {
+				UserFactory.login(userObj);
 			},
 
 			$rootScope.$on('user:loggedin', function (){
@@ -29,6 +29,10 @@
 
 			$rootScope.$on('user:registered', function (){
 				$location.path('/beerlist')
+			});
+
+			$rootScope.$on('user:loggedout', function (){
+				$location.path('/')
 			});
 
 		}

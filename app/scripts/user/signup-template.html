@@ -1,9 +1,9 @@
 <div class="signup">
-	<form ng-submit="register()">
+	<form ng-submit="registerUser(user)">
 		<h1>Register</h1>
-		<input ng-model="user.username" type="text" placeholder='Choose a Username'> </br>
+		<input ng-model="user.username" type="text" placeholder='Email Address'> </br>
 		<input ng-model="user.password" type="password" placeholder='Password'> </br>
 		<input ng-model="pass" type="password" placeholder='Confirm Password'> </br>
-		<input type="submit">
+		<button>Submit</button>
 	</form>
 </div>

@@ -22,7 +22,9 @@
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->    
   </head>
+  
   <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+  
   <body ng-app="Beers">
     <nav class="top-bar" data-topbar role="navigation" ng-controller="NavController">
       <ul class="title-area">
@@ -38,11 +40,12 @@
         <ul class="right">
           <li class="active" ng-hide="loggedin"><a href="#/login">Login</a></li>
           <li class="active" ng-hide="loggedin"><a href="#/register">Register</a></li>
-          <li class="active" ng-show="loggedin" ng-click="logout()"><a href="#/">Logout</a></li>
+          <li class="active" ng-show="loggedin"><a ng-click="logout()" href="#/">Logout</a></li>
         </ul>
 
         <!-- Left Nav Section -->
         <ul class="left">
+          <li class="active" ng-show="loggedin"><a href="#/addbeer">Add Beer</a></li>
         </ul>
       </section>
     </nav> 

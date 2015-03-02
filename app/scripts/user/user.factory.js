@@ -21,32 +21,39 @@
 			};
 
 			// Register
-			var register = function (x){
-				return $http.post(PARSE.URL + 'users', x, PARSE.CONFIG)
-					.success( function (){
+			var registerUser = function (userObj){
+				$http.post(PARSE.URL + 'users', userObj, PARSE.CONFIG)
+					.then( function (response){
+						console.log(response);
 						$rootScope.$broadcast('user:registered');
 					}
 				);
 			};
 
 			// Login
-			var login = function (x){
-				return $http.get(PARSE.URL + 'login', x, PARSE.CONFIG)
-					.success( function (){
+			var loginUser = function (userObj){
+				$http({
+					url: PARSE.URL + 'login',
+					method: 'GET',
+					headers: PARSE.CONFIG.headers,
+					params: userObj
+				}).then( function (response){
+						console.log(response);
+						$cookieStore.put('currentUser', response.data);
 						$rootScope.$broadcast('user:loggedin');
-					}
-				);
+					});
 			};
 
-			// Logout User
+			// Logout 
 			var logoutUser = function (){
-				return $cookieStore.destroy('currentUser');
-				$location.path('/');
+				return $cookieStore.remove('currentUser');
+				$location.path('/login');
+				$rootScope.$broadcast('user:loggedout');
 			}
 
 			return{
-				register: register,
-				login: login,
+				register: registerUser,
+				login: loginUser,
 				user: currentUser,
 				status: checkLoginStatus,
 				logout: logoutUser
