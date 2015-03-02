@@ -9,15 +9,14 @@
 				if ($scope.user.password !== $scope.pass){
 					alert('Passwords have to match')
 				}
-
 				UserFactory.register($scope.user);
 			},
 
-			$scope.login = function (u) {
-				UserFactory.login(u);
+			$scope.login = function () {
+				UserFactory.login($scope.user);
 			},
 
-			$rootScope.$on('user:loggedIn', function (){
+			$rootScope.$on('user:loggedin', function (){
 				$location.path('/beerlist')
 			});
 
