@@ -1,10 +1,10 @@
-(function (){
+;(function (){
 
 	//File Picker Key
 	filepicker.setKey("AUqqkJMvRvC6XKQUxPl6Rz");
 
 	// Set up Main Module
-	angular.module('Beers', ['ngRoute'])
+	angular.module('Beers', ['ngRoute', 'ngCookies'])
 
 	.constant('PARSE', {
 		URL: 'https://api.parse.com/1/',
@@ -23,22 +23,22 @@
 			templateUrl: 'scripts/welcome/welcome-template.html'
 		})
 
-		.when('/beerlist', {
+		$routeProvider.when('/beerlist', {
 			controller: 'BeerController',
 			templateUrl: 'scripts/beer/beer-list-template.html'
 		})
 
-		.when('/addbeer', {
+		$routeProvider.when('/addbeer', {
 			controller: 'BeerController',
 			templateUrl: 'scripts/beer/add-beer-template.html'
 		})
 
-		.when('/login', {
+		$routeProvider.when('/login', {
 			controller: 'UserController',
 			templateUrl: 'scripts/user/login-template.html'
 		})
 
-		.when('/register', {
+		$routeProvider.when('/register', {
 			controller: 'UserController',
 			templateUrl: 'scripts/user/signup-template.html'
 
@@ -48,6 +48,20 @@
 			redirectTo: '/'
 		});
 
-	});
+	})
+
+	.run([ '$rootScope', 'UserFactory', 'PARSE',
+		function ($rootScope, UserFactory, PARSE){
+
+			$rootScope.$on('$routeChangeStart', function (){
+
+				UserFactory.status();
+
+				var user = UserFactory.user();
+
+			});
+
+		}
+	])
 
 }());

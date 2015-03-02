@@ -1,9 +1,16 @@
 ;(function (){
 
+	'use strict';
+	
 	angular.module('Beers')
 
 	.controller('UserController', ['$scope', 'UserFactory', '$rootScope', '$location',
 		function ($scope, UserFactory, $rootScope, $location) {
+
+			var user = UserFactory.user();
+			if(user){
+				return $location.path('/');
+			}
 
 			$scope.register = function () {
 				if ($scope.user.password !== $scope.pass){

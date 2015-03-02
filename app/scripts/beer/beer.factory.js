@@ -1,5 +1,7 @@
 ;(function (){
 
+	'use strict';
+
 	angular.module('Beers')
 
 	.factory('BeerFactory', ['$http', 'PARSE', '$rootScope', '$location',

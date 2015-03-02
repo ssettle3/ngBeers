@@ -1,9 +1,24 @@
 ;(function (){
 
+	'use strict';
+
 	angular.module('Beers')
 
-	.factory('UserFactory', ['$http', 'PARSE', '$rootScope',
-		function ($http, PARSE, $rootScope) {
+	.factory('UserFactory', ['$http', 'PARSE', '$rootScope', '$cookieStore', '$location',
+		function ($http, PARSE, $rootScope, $cookieStore, $location) {
+
+			// Get current User
+			var currentUser = function (){
+				return $cookieStore.get('currentUser');
+			};
+
+			// Check Status of User
+			var checkLoginStatus = function  () {
+				var user = currentUser();
+				if(user){
+					PARSE.CONFIG.headers['X-Parse-Session-Token'] = user.sessionToken;
+				}
+			};
 
 			// Register
 			var register = function (x){
@@ -23,10 +38,19 @@
 				);
 			};
 
+			// Logout User
+			var logoutUser = function (){
+				return $cookieStore.destroy('currentUser');
+				$location.path('/');
+			}
+
 			return{
 				register: register,
-				login: login
-			}
+				login: login,
+				user: currentUser,
+				status: checkLoginStatus,
+				logout: logoutUser
+			};
 
 		}
 

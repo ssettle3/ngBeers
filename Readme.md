@@ -1,4 +1,4 @@
-# Beers 'Round The World
+# Beers Around The World
 
 ## Description
  * A catalog of beers from around the world.
@@ -10,8 +10,9 @@
 
 ## Libraries
  * Angular
- * Bourbon
- * Neat
+ * Angular Routes
+ * Angular Cookies
+ * Foundation
  * Sass
 
 ## Copyright / License
