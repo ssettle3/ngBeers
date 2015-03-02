@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Beers 'Round</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/vendor/modernizr.js"></script>
+  </head>
+ 
+  <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+  
+  <body ng-app='Beers'>
+    <header>
+      <a href="#/">Home</a> | <a href="#/beerlist">The Beer</a> | <a href="#/addbeer">Add Beer</a> | <a href="#/register">Register</a> | <a href="#/login">Login</a> 
+    </header>
+    <div class="container" ng-view></div>
+
+    <script src="scripts/vendor.js"></script>
+
+    <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+
+        <script src="scripts/main.js"></script>
+</body>
+</html>
