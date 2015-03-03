@@ -60,8 +60,22 @@ body {
 .form{
   padding: 3rem;
 }
-.photoArea{
-  margin: 3rem;
+
+// Add Beer Form
+.add-beer{
+  margin: 0 20% 0 20%;
+}
+  .photoArea{
+  margin: 3rem 3rem 3rem 0;
+  text-align: left;
+  span{
+    background-color: RGBA(0, 141, 189, 1);
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  span:hover{
+    cursor: pointer;
+  }
 }
 
 // Login/Register
