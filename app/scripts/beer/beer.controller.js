@@ -4,22 +4,47 @@
 
 	angular.module('Beers')
 
-	.controller('BeerController', ['$scope', '$location', 'BeerFactory', '$rootScope',
-		function ($scope, $location, BeerFactory, $rootScope) {	
+	.controller('BeerController', ['$scope', '$location', 'BeerFactory', '$rootScope', 'UserFactory', '$http', 'PARSE',
+		function ($scope, $location, BeerFactory, $rootScope, UserFactory, $http, PARSE) {	
 
+			var user = UserFactory.user();
+
+			// Fetch All Beers
 			BeerFactory.fetch().success( function (data){
 				$scope.beerCol = data.results;
 			});
 
-			$scope.addBeer = function (w) {
-				w.imageURL = $scope.beerImage;
-				BeerFactory.post(w);
+			// Add Beer
+			$scope.addBeer = function (beerObj) {
+				beerObj.imageURL = $scope.beerImage;
+
+				// Add Beer to User Pointer
+				beerObj.user = {
+					__type:'Pointer',
+					className: '_User',
+					objectId: user.objectId
+				}
+
+				// Set up Access Control
+				var ACLObj = {};
+				ACLObj[user.objectId] = {
+					'read': true,
+					'write': true
+				}
+
+				beerObj.ACL = ACLObj;
+				$http.post(PARSE.URL + 'classes/beers', beerObj, PARSE.CONFIG);
+
+
+				// BeerFactory.post(beerObj);
 			},
 
+			// Add Picture of Beer
 			$scope.addImage = function (i){
 				BeerFactory.attImg(i);
 			},
 
+			// Delete Beer
 			$scope.deleteBeer = function (id) {
 				BeerFactory.dltBeer(id)
 					.success( function (){
@@ -32,6 +57,7 @@
 					});
 			},
 
+			// Like Beer
 			$scope.like = function (id, num) {
 				num = (num + 1);
 				BeerFactory.like(id, { 'likes': num })

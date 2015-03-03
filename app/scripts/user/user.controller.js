@@ -12,6 +12,7 @@
 				return $location.path('/');
 			}
 
+			// Register User
 			$scope.registerUser = function (userObj) {
 				if ($scope.user.password !== $scope.pass){
 					alert('Passwords have to match')
@@ -19,6 +20,7 @@
 				UserFactory.register(userObj);
 			},
 
+			// Login User
 			$scope.loginUser = function (userObj) {
 				UserFactory.login(userObj);
 			},
