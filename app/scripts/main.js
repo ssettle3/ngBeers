@@ -23,25 +23,29 @@
 			templateUrl: 'scripts/welcome/welcome-template.html'
 		})
 
-		$routeProvider.when('/beerlist', {
+		.when('/beerlist', {
 			controller: 'BeerController',
 			templateUrl: 'scripts/beer/beer-list-template.html'
 		})
 
-		$routeProvider.when('/addbeer', {
+		.when('/addbeer', {
 			controller: 'BeerController',
 			templateUrl: 'scripts/beer/add-beer-template.html'
 		})
 
-		$routeProvider.when('/login', {
+		.when('/login', {
 			controller: 'UserController',
 			templateUrl: 'scripts/user/login-template.html'
 		})
 
-		$routeProvider.when('/register', {
+		.when('/register', {
 			controller: 'UserController',
 			templateUrl: 'scripts/user/signup-template.html'
+		})
 
+		.when('/profile', {
+			controller: 'UserController',
+			templateUrl: 'scripts/user/profile-template.html'
 		})
 
 		.otherwise({

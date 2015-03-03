@@ -9,20 +9,22 @@
 
 			var user = UserFactory.user();
 			if(user){
-				return $location.path('/');
+				return $location.path('/profile');
 			}
 
 			// Register User
 			$scope.registerUser = function (userObj) {
 				if ($scope.user.password !== $scope.pass){
 					alert('Passwords have to match')
+				} else {
+					UserFactory.register(userObj);
 				}
-				UserFactory.register(userObj);
 			},
 
 			// Login User
 			$scope.loginUser = function (userObj) {
 				UserFactory.login(userObj);
+
 			},
 
 			$rootScope.$on('user:loggedin', function (){

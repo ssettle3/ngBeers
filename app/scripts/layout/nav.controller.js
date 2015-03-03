@@ -17,13 +17,13 @@
 			}
 
 			$scope.logout = function (){
-				$rootScope.$on('user:loggedout', function (){
-					$location.path('/')
-				});
-
-				UserFactory.logout();
-				
+				UserFactory.logout();				
 			}
+
+			$rootScope.$on('user:loggedout', function (){
+				$scope.loggedin = false;
+			});
+
 		}
 
 	]);

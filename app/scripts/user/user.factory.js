@@ -47,7 +47,6 @@
 			// Logout 
 			var logoutUser = function (){
 				return $cookieStore.remove('currentUser');
-				$location.path('/login');
 				$rootScope.$broadcast('user:loggedout');
 			}
 

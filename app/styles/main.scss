@@ -69,11 +69,13 @@ body {
 .login form{
   padding: 3rem;
   margin-top: 2rem;
+  margin: 0 30% 0 30%;
 }
 
 .signup form{
   padding: 3rem;
   margin-top: 2rem;
+  margin: 0 30% 0 30%;
 }
 
 // List Of Beers View
@@ -97,14 +99,6 @@ body {
   }
   h3{
     font-size: 1rem;
-  }
-  h4{
-    font-size: 0.7rem;
-  }
-  h4:hover{
-    cursor: pointer;
-    color:blue;
-    text-decoration: underline;
   }
   a{
     text-align: center;
@@ -157,6 +151,10 @@ body {
   }
   .likes:hover{
     background: none;
+  }
+  h4{
+    margin-top: 2rem;
+    font-size: 0.7rem;
   }
 }
 

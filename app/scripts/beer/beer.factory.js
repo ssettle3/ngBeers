@@ -9,12 +9,37 @@
 
 			// Fetch Beers
 			var getAllBeers = function (){
-				return $http.get(PARSE.URL + 'classes/beers', PARSE.CONFIG)
+				return $http({
+					headers: PARSE.CONFIG.headers,
+					url: PARSE.URL + 'classes/beers',
+					method: 'GET',
+					params: {
+						include: 'user',
+					},
+				}).success( function (data){
+					console.log(data);
+				});
 			};
 
 			// Add Beer
-			var addBeer = function (data){
-				$http.post(PARSE.URL + 'classes/beers', data, PARSE.CONFIG)
+			var addBeer = function (beerObj){
+				
+				// Add Beer to User Pointer
+				beerObj.user = {
+					__type:'Pointer',
+					className: '_User',
+					objectId: user.objectId
+				}
+
+				// Set up Access Control
+				var ACLObj = {};
+				ACLObj[user.objectId] = {
+					'read': true,
+					'write': true
+				}
+
+				beerObj.ACL = ACLObj;
+				$http.post(PARSE.URL + 'classes/beers', beerObj, PARSE.CONFIG)
 					.success( function (){
 						$rootScope.$broadcast('beer:added');
 					}
