@@ -44,8 +44,8 @@
 		})
 
 		.when('/profile', {
-			controller: 'UserController',
-			templateUrl: 'scripts/user/profile-template.html'
+			controller: 'ProfileController',
+			templateUrl: 'scripts/profile/profile-template.html'
 		})
 
 		.otherwise({

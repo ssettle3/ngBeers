@@ -75,6 +75,7 @@ body {
   }
   span:hover{
     cursor: pointer;
+    background-color: RGBA(0, 120, 163, 1);
   }
 }
 
@@ -122,6 +123,9 @@ body {
   }
   a:nth-child(even){
     margin-left: 2rem;
+  }
+  input{
+    margin: 1rem 0 1rem 3rem;
   }
 }
 .single-beer{
