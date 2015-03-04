@@ -24,6 +24,19 @@
 				$scope.beerCol = b;
 			});
 
+			// Delete Your Beers
+			$scope.dltThis = function (id){
+				BeerFactory.dltBeer(id)
+					.success( function (){
+						for (var i = 0; i < $scope.beerCol.length; i++){
+							if ($scope.beerCol[i].objectId === id){
+								$scope.beerCol.splice(i, 1);
+								return;
+							}
+						}
+					});
+			}
+
 		}
 
 	]);

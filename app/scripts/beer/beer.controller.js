@@ -26,19 +26,6 @@
 				BeerFactory.attImg(i);
 			},
 
-			// Delete Beer
-			$scope.deleteBeer = function (id) {
-				BeerFactory.dltBeer(id)
-					.success( function (){
-						for (var i = 0; i < $scope.beerCol.length; i++){
-							if ($scope.beerCol[i].objectId === id){
-								$scope.beerCol.splice(i, 1);
-								return;
-							}
-						}
-					});
-			},
-
 			// Like Beer
 			$scope.like = function (id, num) {
 				var num = (num + 1);
