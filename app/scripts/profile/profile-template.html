@@ -1,7 +1,9 @@
-<div class="user-profile">
-	<h1>This is your profile {{ user.username }} </h1>
+<div class="user-profile" ng-model="userProfile">
+	<h1 ng-bind="userProfile"></h1>
 	<div class="contact">
 		<h2>This is your contact information</h2>
+		<input type="text" placeholder="First Name">
+		<input type="text" placeholder="Last Name">
 	</div>	
 	<div class="user-beers">
 		<h2>These are the beers that you submitted</h2>

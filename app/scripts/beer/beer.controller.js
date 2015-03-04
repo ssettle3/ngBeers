@@ -4,8 +4,10 @@
 
 	angular.module('Beers')
 
-	.controller('BeerController', ['$scope', '$location', 'BeerFactory', '$rootScope',
-		function ($scope, $location, BeerFactory, $rootScope) {	
+	.controller('BeerController', ['$scope', '$location', 'BeerFactory', '$rootScope', 'UserFactory',
+		function ($scope, $location, BeerFactory, $rootScope, UserFactory) {	
+
+			var user = UserFactory.user();
 
 			// Fetch All Beers
 			BeerFactory.fetch().success( function (data){

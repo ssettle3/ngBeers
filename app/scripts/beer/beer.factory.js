@@ -4,8 +4,10 @@
 
 	angular.module('Beers')
 
-	.factory('BeerFactory', ['$http', 'PARSE', '$rootScope', '$location',
-		function ($http, PARSE, $rootScope, $location) {
+	.factory('BeerFactory', ['$http', 'PARSE', '$rootScope', '$location', 'UserFactory',
+		function ($http, PARSE, $rootScope, $location, UserFactory) {
+
+			var user = UserFactory.user();
 
 			// Fetch Beers
 			var getAllBeers = function (){

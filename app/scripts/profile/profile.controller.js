@@ -9,7 +9,7 @@
 
 			var user = UserFactory.user();
 			if(user){
-				console.log(user.username);
+				$scope.userProfile = user.username;
 			}
 
 
