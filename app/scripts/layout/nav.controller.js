@@ -8,7 +8,7 @@
 		function ($scope, UserFactory, $rootScope, $location){
 
 			var user = UserFactory.user();
-
+			
 			if(user){
 				$scope.loggedin = true;
 				$scope.user = user;
@@ -20,8 +20,12 @@
 				UserFactory.logout();				
 			}
 
-			$rootScope.$on('user:loggedout', function (){
+			$scope.$on('user:loggedout', function (){
 				$scope.loggedin = false;
+			});
+
+			$scope.$on('user:loggedin', function (){
+				$scope.loggedin = true;
 			});
 
 		}

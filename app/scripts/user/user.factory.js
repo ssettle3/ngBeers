@@ -46,7 +46,7 @@
 
 			// Logout 
 			var logoutUser = function (){
-				return $cookieStore.remove('currentUser');
+			 	$cookieStore.remove('currentUser');
 				$rootScope.$broadcast('user:loggedout');
 			}
 

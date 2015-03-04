@@ -3,11 +3,11 @@
 	<hr>
 	<div class="user-beers">
 		<div class="beer-list">
-			<h2>Your Beers</h2>
+			<h2> Beers You Submitted </h2>
 			<ul>
 				<li ng-repeat="beer in beerCol">
 					<h3>{{ beer.name }}</h2>
-					<h6 class='likes'>Likes: {{ beer.likes }} </h6>
+					<h6>Likes: {{ beer.likes }} </h6>
 					<span ng-click="deleteBeer(beer.objectId)">Delete Beer</span>
 				</li>
 			</ul>

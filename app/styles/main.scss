@@ -178,6 +178,12 @@ body {
 
 // Profile
 .user-profile{
+  h1{
+    text-align: center;
+  }
+  h2{
+    margin-left: 1rem;
+  }
   li {
     list-style: none;
     margin-bottom: 10px;
@@ -185,18 +191,29 @@ body {
     font-size: 25px;
     border-left: 3px solid #000;
     display: block;
-    padding-left: 15px;
-    background-color: lightblue;
+    margin: 1rem 1rem 2rem 1rem;
+    background-color: RGBA(0, 140, 186, 1);
+    h3{
+      color: white;
+      font-size: 1.5rem;
+      padding: 1rem 1rem 0 1rem;
+      margin-bottom: 0;
+    }
+    h6{
+      display: inline-block;
+      color: white;
+      padding-left: 1rem;
+    }
     span {
       position: absolute;
       top: 0px;
       right: 0px;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 1rem;
       display: block;
       background-color: darkred;
       color: white;
-      padding: 4px 12px;
+      padding: 2rem;
       cursor: pointer;
     }
   }
