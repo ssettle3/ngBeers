@@ -1,12 +1,17 @@
-<div class="user-profile" ng-model="userProfile">
-	<h1 ng-bind="userProfile"></h1>
-	<div class="contact">
-		<h2>This is your contact information</h2>
-		<input type="text" placeholder="First Name">
-		<input type="text" placeholder="Last Name">
-	</div>	
+<div class="user-profile">
+	<h1 ng-model="userProfile" ng-bind="userProfile"></h1>
+	<hr>
 	<div class="user-beers">
-		<h2>These are the beers that you submitted</h2>
+		<div class="beer-list">
+			<h2>Your Beers</h2>
+			<ul>
+				<li ng-repeat="beer in beerCol">
+					<h3>{{ beer.name }}</h2>
+					<h6 class='likes'>Likes: {{ beer.likes }} </h6>
+					<span ng-click="deleteBeer(beer.objectId)">Delete Beer</span>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
 
