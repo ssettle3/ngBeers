@@ -1,0 +1,17 @@
+<div class="user-profile">
+	<h1 ng-model="userProfile" ng-bind="userProfile"></h1>
+	<hr>
+	<div class="user-beers">
+		<div class="beer-list">
+			<h2> Beers You Submitted </h2>
+			<ul>
+				<li ng-repeat="beer in beerCol">
+					<h3>{{ beer.name }}</h2>
+					<h6>Likes: {{ beer.likes }} </h6>
+					<span ng-click="dltThis(beer.objectId)">Delete Beer</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
