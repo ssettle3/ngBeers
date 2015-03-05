@@ -1,6 +1,7 @@
 <div class="beer-list">
 	<h1>The Beers</h1>
-	<div class="single-beer" ng-repeat="beer in beerCol">
+	<input type="text" ng-model="searchText" placeholder="Filter These Beers">
+	<div class="single-beer" ng-repeat="beer in beerCol | filter: searchText">
 		<img ng-src= '{{ beer.imageURL}}'>
 		<div class="content">
 			<h2>{{ beer.name }}</h2>
@@ -9,7 +10,7 @@
 			<h3>Location: {{ beer.location }}</h3>
 			<span class='like' ng-click="like(beer.objectId, beer.likes)">Like Beer</span>
 			<span class='likes'>Likes: {{ beer.likes }} </span>
-			<span ng-click="deleteBeer(beer.objectId)">Delete Beer</span>
+			<h4>Submitted by {{beer.user.username}}</h4>
 		</div>
 	</div>
 </div>
